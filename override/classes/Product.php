@@ -1,5 +1,4 @@
 <?php
-
 /**
 
  * NOTICE OF LICENSE
@@ -31,11 +30,12 @@ class Product extends ProductCore
 
     public $custom_field_naker;
 
-    public function __construct($id_product = null, 
-                                $full = false, 
-                                $id_lang = null, 
-                                $id_shop = null, 
-                                \Context $context = null
+    public function __construct(
+        $id_product = null,
+        $full = false,
+        $id_lang = null,
+        $id_shop = null,
+        \Context $context = null
     ) {
         //new field
         self::$definition['fields']['custom_field_naker'] = [
