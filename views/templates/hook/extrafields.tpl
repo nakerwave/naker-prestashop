@@ -29,7 +29,7 @@
         <div class="form-group" style="margin-left: -16px;">
             <div class="col-lg-12 col-xl-4">
                 <label class="form-control-label">{l s='Naker id' mod='naker'}</label>
-                <input type="text" name="custom_field_naker" class="form-control" value="{if ($custom_field_naker && $custom_field_naker != '')? $custom_field_naker : ''}"{/if}/>
+                <input type="text" name="custom_field_naker" class="form-control" {if $custom_field_naker && $custom_field_naker != ''} value="{$custom_field_naker|escape:'htmlall':'UTF-8'}"{/if}/>
             </div>   
         </div>
 </div>
