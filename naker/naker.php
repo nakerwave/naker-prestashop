@@ -1,5 +1,31 @@
 <?php
 
+/**
+
+ * NOTICE OF LICENSE
+
+ *
+
+ * This file is licenced under the Software License Agreement.
+
+ * With the purchase or the installation of the software in your application
+
+ * you accept the licence agreement.
+
+ *
+
+ * You must not modify, adapt or create derivative works of this source code
+
+ *
+
+ *  @author    Saif eddine Naimi
+
+ *  @copyright 2020-2025 Naker
+
+ *  @license   LICENSE.txt
+
+ */
+
 if (!defined('_PS_VERSION_')) {
     exit;
 }
@@ -40,9 +66,8 @@ class Naker extends Module
             Shop::setContext(Shop::CONTEXT_ALL);
         }
 
-        if (
-            !parent::install() ||
-            !$this->_installSql() ||
+        if (!parent::install() ||
+            !$this->installSql() ||
             !$this->registerHook('header') ||
             !$this->registerHook('displayAdminProductsExtra') ||
             !$this->registerHook('displayAdminProductsMainStepLeftColumnMiddle') ||
@@ -57,8 +82,7 @@ class Naker extends Module
 
     public function uninstall()
     {
-        if (
-            !parent::uninstall() || !$this->_unInstallSql()
+        if (!parent::uninstall() || !$this->unInstallSql()
             // || !Configuration::deleteByName('NAKER')
         ) {
             return false;
@@ -144,7 +168,7 @@ class Naker extends Module
     }
 
     // modification in DB
-    protected function _installSql()
+    protected function installSql()
     {
         $sqlInstallLang = "ALTER TABLE " . _DB_PREFIX_ . "product "
             . "ADD custom_field_naker VARCHAR(255) NULL";
@@ -154,7 +178,7 @@ class Naker extends Module
     }
 
     // remove modification from DB
-    protected function _unInstallSql()
+    protected function unInstallSql()
     {
 
         $sqlInstallLang = "ALTER TABLE " . _DB_PREFIX_ . "product "
